@@ -6,11 +6,6 @@ namespace ConsoleApplication7
 {
     class Excel
     {
-        public static void SaveFormsData()
-        {
-            
-        }
-
 
         public static void SaveToExcel(string aData, string bData, int aNumber, int bNumber, SLDocument sl)
         {
@@ -34,9 +29,6 @@ namespace ConsoleApplication7
                 throw new Exception("Something went wrong");
             }
             
-
-            
-
         }
     }
 }
