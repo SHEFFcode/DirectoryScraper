@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using SpreadsheetLight;
 
 namespace ConsoleApplication7
 {
@@ -26,10 +27,18 @@ namespace ConsoleApplication7
                 Console.WriteLine(excpt.Message);
             }
 
+            var aString = 1;
+            var bString = 1;
+            SLDocument sl = new SLDocument();
+
             foreach (var file in fileList)
             {
-                Search.MatchString("Hello there!", file);
+                Search.MatchString("Hello there!", file, aString, bString, sl);
+                aString++;
+                bString++;
+
             }
+            sl.SaveAs("HelloWorld.xlsx");
         }
     }
 }

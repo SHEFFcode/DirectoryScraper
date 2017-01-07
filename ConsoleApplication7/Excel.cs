@@ -1,21 +1,41 @@
 ﻿using System;
+using DocumentFormat.OpenXml.Wordprocessing;
 using SpreadsheetLight;
 
 namespace ConsoleApplication7
 {
     class Excel
     {
-        public static void SaveToExcel(string data, string cell)
+        public static void SaveFormsData()
         {
-            SLDocument sl = new SLDocument();
+            
+        }
+
+
+        public static void SaveToExcel(string aData, string bData, int aNumber, int bNumber, SLDocument sl)
+        {
+            var cellA = "A" + aNumber;
+            var cellB = "B" + bNumber;
+
+            
 
             // set a the value of data to the correct cell.
-            sl.SetCellValue("A1", data);
+            try
+            {
+                sl.SetCellValue(cellA, aData);
 
-            sl.SaveAs("HelloWorld.xlsx");
 
-            Console.WriteLine("End of program");
-            Console.ReadLine();
+                sl.SetCellValue(cellB, bData);
+
+            }
+            catch (Exception)
+            {
+                    
+                throw new Exception("Something went wrong");
+            }
+            
+
+            
 
         }
     }

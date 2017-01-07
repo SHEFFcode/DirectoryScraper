@@ -1,4 +1,6 @@
 ﻿using System;
+using System.CodeDom;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,8 +16,14 @@ namespace ConsoleApplication7
     {
         static void Main(string[] args)
         {
-            Crawler.DirSearch(@"C:\Users\whitehawk\Documents\Visual Studio 2015\Projects\ConsoleApplication7\", "index.html");
-            Excel.SaveToExcel("Hello There!", "A1");
+            var input = args[0];
+
+
+            //Crawler.DirSearch(@"C:\Users\whitehawk\Documents\Visual Studio 2015\Projects\ConsoleApplication7\", "index.html");
+            Crawler.DirSearch(input, "index.html");
+
+
         }
+
     }
 }

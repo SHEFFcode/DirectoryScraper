@@ -1,12 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.Text.RegularExpressions;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
+using SpreadsheetLight;
 
 namespace ConsoleApplication7
 {
     class Search
     {
-        public static void MatchString(string stringToMatch, string filePath)
+        public static void MatchString(string stringToMatch, string filePath, int aString, int bString, SLDocument sl)
         {
             var contents =
                 File.ReadAllText(filePath);
@@ -16,6 +18,7 @@ namespace ConsoleApplication7
             if (present)
             {
                 Console.WriteLine($"Present in {filePath}");
+                Excel.SaveToExcel(stringToMatch, filePath, aString, bString, sl);
             }
             else
             {
