@@ -16,11 +16,13 @@ namespace ConsoleApplication7
     {
         static void Main(string[] args)
         {
-            var input = args[0];
+            var directory = args[0];
+            var filename = args[1];
+            var searchParam = args[2];
 
 
             //Crawler.DirSearch(@"C:\Users\whitehawk\Documents\Visual Studio 2015\Projects\ConsoleApplication7\", "index.html");
-            Crawler.DirSearch(input, "index.html");
+            Crawler.DirSearch(directory, filename, searchParam);
 
 
         }

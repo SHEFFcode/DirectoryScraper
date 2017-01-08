@@ -7,7 +7,7 @@ namespace ConsoleApplication7
 {
     class Crawler
     {
-        public static void DirSearch(string sDir, string fName)
+        public static void DirSearch(string sDir, string fName, string searchParam)
         {
             var txtFile = fName;
             var fileList = new List<string>();
@@ -19,7 +19,7 @@ namespace ConsoleApplication7
                     {
                         fileList.Add(f);
                     }
-                    DirSearch(d, txtFile);
+                    DirSearch(d, txtFile, searchParam);
                 }
             }
             catch (Exception excpt)
@@ -33,7 +33,7 @@ namespace ConsoleApplication7
 
             foreach (var file in fileList)
             {
-                Search.MatchString("Hello there!", file, aString, bString, sl);
+                Search.MatchString(searchParam, file, aString, bString, sl);
                 aString++;
                 bString++;
 
