@@ -1,4 +1,4 @@
-#Directory Crawler
+#Directory Scraper
 
 Use the directory crawler in the following manner:
 
