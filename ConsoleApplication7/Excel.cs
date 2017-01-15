@@ -1,34 +1,38 @@
 ﻿using System;
-using DocumentFormat.OpenXml.Wordprocessing;
+using System.Collections.Generic;
 using SpreadsheetLight;
 
 namespace ConsoleApplication7
 {
     class Excel
     {
+        private SLDocument _document = new SLDocument();
 
-        public static void SaveToExcel(string aData, string bData, int aNumber, int bNumber, SLDocument sl)
+        private void cellPopulator(List<string> itemToPopulate, int _columnNumber, string results)
         {
-            var cellA = "A" + aNumber;
-            var cellB = "B" + bNumber;
-
-            
-
-            // set a the value of data to the correct cell.
-            try
+            var rowNumber = 1;
+            var columnNumber = _columnNumber;
+            foreach (var item in itemToPopulate)
             {
-                sl.SetCellValue(cellA, aData);
-
-
-                sl.SetCellValue(cellB, bData);
-
+                try
+                {
+                    _document.SetCellValue(rowNumber, _columnNumber, item);
+                    _document.SetColumnWidth(columnNumber, 100);
+                    _document.SetCellValue(rowNumber, _columnNumber + 1, results);
+                    _document.SetColumnWidth(columnNumber + 1, 10);
+                    rowNumber++;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Something went wrong, error: {ex}");
+                }
             }
-            catch (Exception)
-            {
-                    
-                throw new Exception("Something went wrong");
-            }
-            
+        }
+
+        public void SaveToExcel(List<string> matches, string results)
+        {
+            cellPopulator(matches, 1, results);
+            _document.SaveAs("HelloWorld.xlsx");
         }
     }
 }
