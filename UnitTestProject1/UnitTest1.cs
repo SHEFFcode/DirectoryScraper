@@ -10,15 +10,29 @@ namespace UnitTestProject1
     [TestFixture]
     public class CrawlerTest
     {
+
+        private Crawler crawler;
+
+        [SetUp]
+        public void Init()
+        {
+            crawler = new Crawler();
+        }
+
         [TestCase]
         public void TestCrawl()
         {
-            Crawler crawler = new Crawler();
             var result =
                 crawler.DirSearch(@"C:\Users\whitehawk\Documents\Visual Studio 2015\Projects\ConsoleApplication7",
                     @"index.html", @"Hello there!");
 
             Assert.IsInstanceOf(typeof(List<string>), result);
+        }
+
+        [TearDown]
+        public void Dispose()
+        {
+            crawler = null;
         }
     }
 }
