@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace ConsoleApplication7
 {
-    class Crawler
+    public class Crawler
     {
         public List<string> DirSearch(string sDir, string fName, string searchParam)
         {
