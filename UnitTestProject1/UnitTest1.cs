@@ -26,6 +26,7 @@ namespace UnitTestProject1
                 crawler.DirSearch(@"C:\Users\whitehawk\Documents\Visual Studio 2015\Projects\ConsoleApplication7",
                     @"index.html", @"Hello there!");
 
+            //All we are doing is asserting that the result is of type list of strings.
             Assert.IsInstanceOf(typeof(List<string>), result);
         }
 
